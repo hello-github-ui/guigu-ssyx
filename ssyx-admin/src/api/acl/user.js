@@ -3,7 +3,7 @@ import request from '@/utils/request'
 const api_name = '/admin/acl/user'
 
 /*
-登陆
+登录
 */
 export function login({username, password}) {
     return request({
