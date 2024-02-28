@@ -1,16 +1,16 @@
-import request from '@/utils/request'
+import request from "@/utils/request";
 
-const api_name = '/admin/acl/user'
+const api_name = "/admin/acl/user";
 
 /*
 登录
 */
-export function login({username, password}) {
+export function login({ username, password }) {
     return request({
-        url: '/admin/acl/index/login',
-        method: 'post',
-        data: {username, password}
-    })
+        url: "/admin/acl/index/login",
+        method: "post",
+        data: { username, password },
+    });
 }
 
 /*
@@ -18,9 +18,9 @@ export function login({username, password}) {
 */
 export function getInfo() {
     return request({
-        url: '/admin/acl/index/info',
-        method: 'get'
-    })
+        url: "/admin/acl/index/info",
+        method: "get",
+    });
 }
 
 /*
@@ -28,18 +28,17 @@ export function getInfo() {
 */
 export function logout() {
     return request({
-        url: '/admin/acl/index/logout',
-        method: 'post'
-    })
+        url: "/admin/acl/index/logout",
+        method: "post",
+    });
 }
 
 /*
 获取当前用户的菜单权限列表
 */
 export function getMenu() {
-    return request('/admin/acl/index/menu')
+    return request("/admin/acl/index/menu");
 }
-
 
 /*
 获取后台用户分页列表(带搜索)
@@ -47,9 +46,9 @@ export function getMenu() {
 export function getPageList(page, limit, searchObj) {
     return request({
         url: `${api_name}/${page}/${limit}`,
-        method: 'get',
-        params: searchObj
-    })
+        method: "get",
+        params: searchObj,
+    });
 }
 
 /*
@@ -58,8 +57,8 @@ export function getPageList(page, limit, searchObj) {
 export function getById(id) {
     return request({
         url: `${api_name}/get/${id}`,
-        method: 'get'
-    })
+        method: "get",
+    });
 }
 
 /*
@@ -68,9 +67,9 @@ export function getById(id) {
 export function add(user) {
     return request({
         url: `${api_name}/save`,
-        method: 'post',
-        data: user
-    })
+        method: "post",
+        data: user,
+    });
 }
 
 /*
@@ -79,9 +78,9 @@ export function add(user) {
 export function update(user) {
     return request({
         url: `${api_name}/update`,
-        method: 'put',
-        data: user
-    })
+        method: "put",
+        data: user,
+    });
 }
 
 /*
@@ -90,23 +89,23 @@ export function update(user) {
 export function getRoles(adminId) {
     return request({
         url: `${api_name}/toAssign/${adminId}`,
-        method: 'get'
-    })
+        method: "get",
+    });
 }
 
 /*
 给某个用户分配角色
-roleId的结构: 字符串, 'rId1,rId2,rId3'
+roleIds的结构: 字符串, 'rId1,rId2,rId3'
 */
-export function assignRoles(adminId, roleId) {
+export function assignRoles(adminId, roleIds) {
     return request({
         url: `${api_name}/doAssign`,
-        method: 'post',
+        method: "post",
         params: {
             adminId,
-            roleId
-        }
-    })
+            roleIds,
+        },
+    });
 }
 
 /*
@@ -115,8 +114,8 @@ export function assignRoles(adminId, roleId) {
 export function removeById(id) {
     return request({
         url: `${api_name}/remove/${id}`,
-        method: 'delete'
-    })
+        method: "delete",
+    });
 }
 
 /*
@@ -126,7 +125,7 @@ ids的结构: ids是包含n个id的数组
 export function removeUsers(ids) {
     return request({
         url: `${api_name}/batchRemove`,
-        method: 'delete',
-        data: ids
-    })
+        method: "delete",
+        data: ids,
+    });
 }
